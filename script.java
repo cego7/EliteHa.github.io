@@ -1,17 +1,24 @@
-let virusStatus = document.getElementById("virus-status");
-
-function startVirus() {
-    virusStatus.innerHTML = "O vírus zen começou a se espalhar lentamente...";
-
-    // Simula o progresso do vírus
-    let progress = 0;
-    let interval = setInterval(() => {
-        progress += 10;
-        virusStatus.innerHTML = `O vírus zen se espalhou ${progress}%`;
-
-        if (progress === 100) {
-            clearInterval(interval);
-            virusStatus.innerHTML = "O vírus zen atingiu 100%! Relaxando agora...";
-        }
-    }, 1000); // Atualiza a cada segundo
-}
+document.getElementById('uploadForm').addEventListener('submit', function(e) {
+  e.preventDefault();
+  
+  const fileInput = document.getElementById('fileInput');
+  const file = fileInput.files[0];
+  
+  if (file) {
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    // Fazendo a requisição ao backend (exemplo com PHP)
+    fetch('upload.php', {
+      method: 'POST',
+      body: formData
+    })
+    .then(response => response.text())
+    .then(result => {
+      document.getElementById('status').innerText = result;
+    })
+    .catch(error => {
+      document.getElementById('status').innerText = 'Erro ao fazer o upload.';
+    });
+  }
+});
