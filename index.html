@@ -1,21 +1,17 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Upload de Arquivos</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Arquivos</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Upload de Arquivo</h1>
-    <form id="uploadForm" enctype="multipart/form-data">
-      <input type="file" name="file" id="fileInput" required>
-      <button type="submit">Enviar</button>
-    </form>
-    <div id="status"></div>
-  </div>
+    <h2>Envie seu Arquivo</h2>
+    <input type="file" id="fileInput">
+    <button onclick="uploadFile()">Enviar</button>
+    <p id="status"></p>
 
-  <script src="script.js"></script>
+    <script src="upload.js"></script>
 </body>
 </html>
